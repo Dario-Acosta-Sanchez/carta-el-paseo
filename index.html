@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Carta El Paseo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Concepto: carta de bar de paseo andaluz. Cabecera verde persiana con cenefa de azulejo,
+   lista a una columna con precios alineados a la derecha, pensada para leer en el móvil desde la mesa. */
+:root{
+  --cal:#F2F5F0;        /* pared encalada */
+  --papel:#FFFFFF;
+  --tinta:#13231B;      /* verde casi negro */
+  --tinta-2:#506058;
+  --persiana:#17402F;   /* verde persiana, cabecera */
+  --sobre-persiana:#F2F5F0;
+  --albero:#B87A10;     /* albero del paseo, acento */
+  --albero-fuerte:#E0A22C;
+  --azulejo:#1D4F73;
+  --linea:#D5DDD6;
+  --display:"Bricolage Grotesque","Arial Narrow",Arial,sans-serif;
+  --texto:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --cal:#0E1713; --papel:#16221C; --tinta:#E8EEE8; --tinta-2:#9DADA3;
+    --persiana:#0F2A1F; --sobre-persiana:#E8EEE8; --albero:#E3A93A; --albero-fuerte:#E3A93A;
+    --azulejo:#86B9DA; --linea:#28382F; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --cal:#0E1713; --papel:#16221C; --tinta:#E8EEE8; --tinta-2:#9DADA3;
+  --persiana:#0F2A1F; --sobre-persiana:#E8EEE8; --albero:#E3A93A; --albero-fuerte:#E3A93A;
+  --azulejo:#86B9DA; --linea:#28382F; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--cal);color:var(--tinta);font-family:var(--texto);font-size:16px;line-height:1.45}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--persiana)}
+.wrap{max-width:720px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--albero-fuerte);outline-offset:2px}
+
+/* Cabecera */
+.cab{background:var(--persiana);color:var(--sobre-persiana)}
+.cab .wrap{padding-block:28px 24px;display:flex;flex-direction:column;gap:18px}
+.sobre{font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;font-weight:600;color:var(--albero-fuerte);margin:0}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(3rem,15vw,5.2rem);line-height:.88;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.lugar{margin:0;font-size:.98rem;opacity:.85}
+.llevar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;border:1.5px solid color-mix(in srgb,var(--sobre-persiana) 35%,transparent);border-radius:14px;padding:14px 16px}
+.llevar .et{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;opacity:.8;flex-basis:100%}
+.llevar .tel{font-family:var(--display);font-weight:700;font-size:1.75rem;letter-spacing:.02em;font-variant-numeric:tabular-nums;text-decoration:none;user-select:all}
+.btn{font:600 .9rem var(--texto);border-radius:999px;border:0;padding:9px 16px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center}
+.btn.p{background:var(--albero-fuerte);color:#1B1403}
+.btn.s{background:transparent;color:var(--sobre-persiana);border:1.5px solid color-mix(in srgb,var(--sobre-persiana) 45%,transparent)}
+.acc{display:flex;gap:8px;margin-left:auto}
+/* cenefa de azulejo */
+.cenefa{height:18px;background:
+  conic-gradient(from 45deg at 50% 50%,var(--azulejo) 0 25%,var(--cal) 0 50%,var(--albero-fuerte) 0 75%,var(--cal) 0) 0 0/18px 18px}
+
+/* Navegación por secciones */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--cal);border-bottom:1px solid var(--linea)}
+nav .wrap{display:flex;gap:6px;overflow-x:auto;padding-block:10px;scrollbar-width:none}
+nav .wrap::-webkit-scrollbar{display:none}
+nav a{flex:none;text-decoration:none;font-weight:600;font-size:.92rem;padding:8px 14px;border-radius:999px;color:var(--tinta-2);border:1px solid var(--linea);background:var(--papel)}
+nav a[aria-current="true"]{background:var(--tinta);color:var(--cal);border-color:var(--tinta)}
+
+/* Secciones */
+main.wrap{padding-block:8px 40px;display:flex;flex-direction:column}
+section{padding-block:28px 6px;scroll-margin-top:calc(64px + env(safe-area-inset-top,0px))}
+.tit{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:3px solid var(--tinta);padding-bottom:8px}
+h2{font-family:var(--display);font-weight:800;font-size:1.9rem;letter-spacing:-.01em;margin:0;line-height:1}
+.tit span{font-size:.85rem;color:var(--tinta-2);font-weight:500;text-align:right}
+ul{list-style:none;margin:0;padding:0}
+li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 14px;padding:13px 0;border-bottom:1px solid var(--linea);align-items:baseline}
+li:has(.mini){grid-template-columns:56px minmax(0,1fr) auto;column-gap:12px}
+li .mini{grid-row:1/span 2;grid-column:1;width:56px;height:56px;border-radius:10px;object-fit:cover;align-self:center}
+li:has(.mini) .n,li:has(.mini) .d{grid-column:2}
+li:has(.mini) .p{grid-column:3}
+.banda{display:flex;gap:8px;margin-top:14px}
+.banda img{flex:1;min-width:0;height:150px;object-fit:cover;border-radius:12px}
+li .n{font-weight:600;font-size:1.06rem}
+li .d{grid-column:1;color:var(--tinta-2);font-size:.92rem}
+li .p{grid-row:1;grid-column:2;font-family:var(--display);font-weight:700;font-size:1.15rem;font-variant-numeric:tabular-nums;color:var(--albero);white-space:nowrap}
+li .p.c{font-family:var(--texto);font-size:.8rem;font-weight:600;color:var(--tinta-2);letter-spacing:.04em;text-transform:uppercase}
+.nota{background:var(--papel);border:1px solid var(--linea);border-radius:12px;padding:12px 14px;font-size:.93rem;color:var(--tinta-2);margin-top:14px}
+.nota b{color:var(--tinta)}
+
+footer{background:var(--persiana);color:var(--sobre-persiana)}
+footer .wrap{padding-block:26px 30px;display:flex;flex-direction:column;gap:6px;font-size:.93rem}
+footer strong{font-family:var(--display);font-size:1.3rem;font-weight:800}
+footer .tel{font-variant-numeric:tabular-nums;user-select:all;font-weight:700;color:var(--albero-fuerte)}
+footer small{opacity:.7}
+</style>
+
+<header class="cab">
+  <div class="wrap">
+    <p class="sobre">Café · Bar</p>
+    <h1>El Paseo</h1>
+    <p class="lugar">Paseo de Santa Marina · Fernán Núñez (Córdoba)</p>
+    <div class="llevar">
+      <span class="et">Pedidos para llevar</span>
+      <a class="tel" href="tel:+34624748836">624 748 836</a>
+      <span class="acc">
+        <a class="btn p" href="tel:+34624748836">Llamar</a>
+        <button class="btn s" id="copiar" type="button">Copiar</button>
+      </span>
+    </div>
+  </div>
+  <div class="cenefa" aria-hidden="true"></div>
+</header>
+
+<nav aria-label="Secciones de la carta"><div class="wrap" id="tabs"></div></nav>
+
+<main class="wrap" id="carta"></main>
+
+<footer>
+  <div class="wrap">
+    <strong>Café Bar El Paseo</strong>
+    <span>Pedidos para llevar: <span class="tel">624 748 836</span></span>
+    <small>Si tienes alguna alergia o intolerancia, pregunta a nuestro personal antes de pedir.</small>
+    <small>Fotos orientativas (Wikimedia Commons). La presentación puede variar.</small>
+  </div>
+</footer>
+
+<script>
+const CARTA = [
+  {id:"entrantes", t:"Entrantes", platos:[
+    ["Gambas","",8],["Mejillones","",8],["Langostinos","",8],["Boquerones en vinagre","",8],
+    ["Patatas bravas","",8],["Patatas alioli","",8]]},
+  {id:"raciones", t:"Raciones", platos:[
+    ["Flamenquín de lomo","",9],["San Jacobo de lomo","",9],["Frito de solomillo","",9],
+    ["Lagrimitas de pollo","",9],["Croquetas de jamón","",9],["Croquetas de pollo","",9],
+    ["Pechuga de pollo a la plancha","",9],["Pechuga de pollo empanada","",9],
+    ["Solomillo de pollo con salsa verde","",12],["Carrillada en salsa","",12],["Rabo de toro","",12],
+    ["Puntillitas de solomillo al PX","",12],["Crispín de merluza","",9],["Calamares fritos","",9],
+    ["Bacalao frito","",9],["Rosada frita","",9]]},
+  {id:"bocadillos", t:"Bocadillos", platos:[
+    ["Lomo","Lomo fresco, tomate, lechuga y queso",4],
+    ["Pollo","Pechuga de pollo, tomate, lechuga y queso",4],
+    ["Lomo adobado","Lomo adobado, tomate, lechuga y queso",4],
+    ["Bacon","Bacon, tomate, lechuga y queso",4],
+    ["Magreta","Magreta, tomate, lechuga y queso",4],
+    ["Kebab","Carne kebab, tomate, lechuga, queso y salsa kebab",4],
+    ["Tortilla","Tortilla, tomate, lechuga y queso",4],
+    ["Pollo marinado","Pechuga de pollo marinada, tomate, lechuga, queso y cebolla",5],
+    ["Cordobés","Tortilla de patatas, pimiento, cebolla y jamón serrano",5],
+    ["Serranito de pollo","Pechuga de pollo, tomate, pimiento y jamón serrano",5],
+    ["Serranito de lomo","Filete de lomo, tomate, pimiento y jamón serrano",5],
+    ["Campero","Chistorra, bacon, queso, tomate y pimiento",5],
+    ["Especial de la casa","Pollo, lomo, lomo adobado, tortilla o bacon, con tomate, lechuga y queso",5.5]]},
+  {id:"hamburguesas", t:"Hamburguesas", sub:"Con cebolla crujiente, tomate, lechuga y queso cheddar", platos:[
+    ["Ternera","",4],["Pollo","",4],["Cerdo","",4]]},
+  {id:"hot-dog", t:"Hot dog", platos:[
+    ["Simple","Salchicha, queso y kétchup",2.5],
+    ["Completo","Salchicha, tomate, lechuga, queso y kétchup",3]]}
+];
+// Fotos orientativas (no son de la casa). Si falta un archivo, la foto simplemente no aparece.
+const FOTO = {
+  "Gambas":"c-gambas","Mejillones":"c-mejillones","Langostinos":"c-langostinos","Boquerones en vinagre":"c-boquerones",
+  "Patatas bravas":"c-bravas","Patatas alioli":"c-alioli","Flamenquín de lomo":"c-flamenquin","San Jacobo de lomo":"c-sanjacobo",
+  "Frito de solomillo":"c-solomillo","Lagrimitas de pollo":"c-pollofrito","Croquetas de jamón":"c-croquetas","Croquetas de pollo":"c-croquetas",
+  "Pechuga de pollo a la plancha":"c-pechuga","Carrillada en salsa":"c-carrillada","Rabo de toro":"c-rabo","Calamares fritos":"c-calamares",
+  "Bacalao frito":"c-bacalao","Rosada frita":"c-bacalao","Tortilla":"c-tortilla","Kebab":"c-kebab","Serranito de pollo":"c-serranito",
+  "Serranito de lomo":"c-serranito","Lomo":"c-bocadillo","Ternera":"c-hamburguesa","Pollo ":"c-hamburguesa","Simple":"c-hotdog","Completo":"c-hotdog"
+};
+const FOTO_SECCION = {entrantes:["c-gambas","c-bravas"], raciones:["c-flamenquin","c-calamares"], bocadillos:["c-serranito","c-bocadillo"],
+  hamburguesas:["c-hamburguesa"], "hot-dog":["c-hotdog"]};
+const eur = p => p == null ? null : (Number.isInteger(p) ? p + " €" : p.toFixed(2).replace(".", ",") + " €");
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+document.getElementById("tabs").innerHTML = CARTA.map(s => `<a href="#${s.id}">${s.t}</a>`).join("");
+document.getElementById("carta").innerHTML = CARTA.map(s => `
+  <section id="${s.id}">
+    <div class="tit"><h2>${s.t}</h2>${s.sub ? `<span>${esc(s.sub)}</span>` : ""}</div>
+    ${FOTO_SECCION[s.id] ? `<div class="banda">${FOTO_SECCION[s.id].map(f => `<img src="img/${f}.jpg" alt="" loading="lazy" onerror="this.remove()">`).join("")}</div>` : ""}
+    <ul>${s.platos.map(([n,d,p]) => `<li>${FOTO[n] ? `<img class="mini" src="img/${FOTO[n]}.jpg" alt="${esc(n)}" loading="lazy" onerror="this.remove()">` : ""}<span class="n">${esc(n)}</span>${
+      p == null ? `<span class="p c">Consultar</span>` : `<span class="p">${eur(p)}</span>`}${
+      d ? `<span class="d">${esc(d)}</span>` : ""}</li>`).join("")}</ul>
+  </section>`).join("");
+
+// Marca la sección visible en la barra
+const links = [...document.querySelectorAll("#tabs a")];
+const marcar = id => links.forEach(a => {
+  const on = a.getAttribute("href") === "#" + id;
+  a.setAttribute("aria-current", on ? "true" : "false");
+  if (on) a.scrollIntoView({block:"nearest", inline:"center"});
+});
+marcar(CARTA[0].id);
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && marcar(e.target.id)),
+    {rootMargin:"-25% 0px -65% 0px"});
+  document.querySelectorAll("section").forEach(s => io.observe(s));
+}
+
+// Copiar teléfono
+const b = document.getElementById("copiar");
+b.addEventListener("click", () => {
+  const ok = () => { b.textContent = "Copiado"; setTimeout(() => b.textContent = "Copiar", 1800); };
+  const sel = () => { const r = document.createRange(); r.selectNodeContents(document.querySelector(".llevar .tel"));
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+  try { navigator.clipboard.writeText("624748836").then(ok, sel); } catch (e) { sel(); }
+});
+</script>
+
+</body>
+</html>
